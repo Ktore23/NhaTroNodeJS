@@ -104,4 +104,24 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+router.get('/api/detail/:id', async (req, res) => {
+    const client = DatabaseConnection.getMongoClient();
+    try {
+        await client.connect();
+        const db = client.db('nhatro_db');
+        const postsCollection = db.collection('posts');
+        const usersCollection = db.collection('users');
+        const post = await postsCollection.findOne({ _id: new ObjectId(req.params.id) });
+        if (!post) return res.status(404).json({ error: 'Bài đăng không tồn tại' });
+        const user = await usersCollection.findOne({ _id: new ObjectId(post.userId) });
+        post.username = user ? user.username : 'Không xác định';
+        post.email = user ? user.email : 'Không có thông tin';
+        res.json(post);
+    } catch (err) {
+        res.status(500).json({ error: 'Lỗi khi tải chi tiết' });
+    } finally {
+        await client.close();
+    }
+});
+
 module.exports = router;

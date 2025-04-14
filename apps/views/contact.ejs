@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <%- include('partical/menu'); %>
+
+        <div class="contact-page">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <% if (error) { %>
+                <div class="message error">
+                    <%= error %>
+                </div>
+                <% } %>
+                    <% if (success) { %>
+                        <div class="message success">
+                            <%= success %>
+                        </div>
+                        <% } %>
+                            <form action="/contact" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Họ và tên:</label>
+                                    <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" placeholder="Nhập email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Tin nhắn:</label>
+                                    <textarea id="message" name="message" placeholder="Nhập tin nhắn của bạn"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Gửi</button>
+                            </form>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Thuê Nhà Trọ. All rights reserved.</p>
+        </div>
+</body>
+
+</html>

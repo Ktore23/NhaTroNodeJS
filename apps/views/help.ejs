@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Sử Dụng</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        .guide-page { max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f4f4f4; border-radius: 5px; }
+        .guide-page h2 { color: #2c3e50; }
+        .guide-page h3 { margin-top: 20px; }
+        .guide-page p { line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <%- include('partical/menu'); %>
+
+    <div class="guide-page">
+        <h2>Hướng Dẫn Sử Dụng</h2>
+        <h3>1. Đăng ký và đăng nhập</h3>
+        <p>Truy cập <a href="/register">Đăng ký</a> để tạo tài khoản, sau đó dùng <a href="/login">Đăng nhập</a> để truy cập các tính năng.</p>
+
+        <h3>2. Tìm kiếm nhà trọ</h3>
+        <p>Vào trang <a href="/search">Tìm kiếm</a>, nhập khu vực, giá tiền, diện tích hoặc tiện ích để tìm nhà trọ phù hợp.</p>
+
+        <h3>3. Đăng bài nhà trọ</h3>
+        <p>Sau khi đăng nhập, vào <a href="/admin/posts">Quản lý bài đăng</a> để quản lý các bài đăng.</p>
+
+        <h3>4. Liên hệ hỗ trợ</h3>
+        <p>Cần hỗ trợ? Vào <a href="/contact">Liên hệ</a> để gửi tin nhắn cho chúng tôi.</p>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Thuê Nhà Trọ. All rights reserved.</p>
+    </div>
+</body>
+</html>
